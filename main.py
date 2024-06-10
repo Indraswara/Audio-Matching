@@ -18,8 +18,6 @@ def main():
         else:
             data: list[dict[str, str]] = convert_all()
             user_data = converter(user_input)
-            # for item in data: 
-            #     print(item)
             user_data_dict: dict[str, str] = {'filename': user_input, 'text': user_data.binary_to_ascii()}
             if(algo == 1): #BM
                 ans = listBM(data, user_data.binary_to_ascii())
@@ -30,6 +28,7 @@ def main():
             elif(algo == 2): #KMP
                 ans = listKMP(data, user_data.binary_to_ascii())
                 result: dict[str, str] = ans.result()
+                print(user_data_dict)
                 print(result)
                 pass
             # print(data)

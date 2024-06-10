@@ -19,9 +19,9 @@ class listKMP:
 
     def result(self) -> dict[str, str]: 
         idx_ans: int = -1
-        for item in self.results: 
-            if(item != -1): 
-                idx_ans = item 
+        for (idx, item) in enumerate(self.results): 
+            if(item == True): 
+                idx_ans = idx
                 break
         if(idx_ans != -1): 
             return self.list_text[idx_ans]

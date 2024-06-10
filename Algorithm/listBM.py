@@ -19,10 +19,10 @@ class listBM:
 
     def result(self) -> dict[str, str]: 
         idx_ans: int = -1
-        for item in self.results: 
+        for idx, item in enumerate(self.results): 
             # print(item)
             if(item != -1): 
-                idx_ans = item
+                idx_ans = idx
                 break
         
         if(idx_ans != -1):
