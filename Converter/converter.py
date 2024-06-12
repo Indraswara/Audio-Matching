@@ -18,6 +18,8 @@ class converter:
         return self.ascii_data.decode('ascii')
 
 
+
+
 # convert = converter('../Data/Speaker26_000.wav')
 # print(convert.binary_to_ascii())
 

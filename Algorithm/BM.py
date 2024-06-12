@@ -3,6 +3,7 @@ class BM:
         self.text: str = text
         self.pattern: str = pattern
         self.occurences: dict = self.lastOccurences()
+        self.comparison_count = 0
 
     def lastOccurences(self) -> dict: 
         occurences = dict()
@@ -19,6 +20,7 @@ class BM:
         j = patternSize - 1  # pattern index
 
         while i < textSize:
+            self.comparison_count += 1
             if self.text[i] == self.pattern[j]:
                 if j == 0:
                     return i  # Return the start index of the match

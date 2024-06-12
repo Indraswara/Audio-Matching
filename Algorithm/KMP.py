@@ -3,15 +3,17 @@ class KMP:
         self.pattern: str = pattern
         self.text: str = text
         self.lps: list[int] = self.GenerateLPS()
+        self.comparison_count = 0
 
-    def KMPSearch(self) -> bool:
-        patternSize: int = len(pattern)
-        textSize: int  = len(text)
+    def KMPSearch(self) -> (bool, int): #(found_status, comparison_count)
+        patternSize: int = len(self.pattern)
+        textSize: int  = len(self.text)
 
         i: int = 0 
         j: int = 0
 
         while(i < textSize):
+            self.comparison_count += 1
             if(self.pattern[j] == self.text[i]):
                 j += 1
                 i += 1
@@ -28,7 +30,7 @@ class KMP:
 
         return False
 
-    def GenerateLPS(self) -> list[int]:
+    def GenerateLPS(self) -> list[int]: #
         size: int = len(self.pattern)
         self.lps = [0] * size
         i = 0
@@ -42,8 +44,8 @@ class KMP:
         return self.lps
 
 
-pattern = "ABABCABAB"
-text = "ABABDABACDABABCABAB"
-kmp = KMP(pattern, text)
-result = kmp.KMPSearch()
-print("Pattern found:", result)
+# pattern = "ABABCABAB"
+# text = "ABABDABACDABABCABAB"
+# kmp = KMP(pattern, text)
+# result = kmp.KMPSearch()
+# print("Pattern found:", result)
